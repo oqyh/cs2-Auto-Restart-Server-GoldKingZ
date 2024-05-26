@@ -40,6 +40,8 @@
   //Using Without any ds: or host: means what inside /../csgo/maps/  (ex: de_dust2)
   "Mode1_RestartServerDefaultMap": "de_dust2",
 
+//-----------------------------------------------------------------------------------------
+
   //Enable Logging Text Located In Auto-Restart-Server-GoldKingZ/logs/ ?
   "TextLog_Enable": false,
 
@@ -55,6 +57,8 @@
 
   //Auto Delete Logs If More Than X (Days) Old
   "TextLog_AutoDeleteLogsMoreThanXdaysOld": 0,
+
+//-----------------------------------------------------------------------------------------
 
   //Send Log To Discord Via WebHookURL
   // (0) = Disable

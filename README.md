@@ -1,4 +1,4 @@
-# [CS2] Auto-Restart-Server-GoldKingZ (1.0.0)
+# [CS2] Auto-Restart-Server-GoldKingZ (1.0.1)
 
 ### Auto Restart Server On Last Player Disconnect
 
@@ -39,6 +39,12 @@
   //Using host: To Get Any Workshop Map example https://steamcommunity.com/sharedfiles/filedetails/?id=3112654794 (ex: host:3112654794)
   //Using Without any ds: or host: means what inside /../csgo/maps/  (ex: de_dust2)
   "Mode1_RestartServerDefaultMap": "de_dust2",
+
+  //Enable Schedule To RestartMode?
+  "EnableSchedule": false,
+
+  //if EnableSchedule true which time is it (HH:mm) (ex: 06:00 means 6AM)
+  "ScheduleOnEvery": "06:00",
 
 //-----------------------------------------------------------------------------------------
 
@@ -91,6 +97,10 @@
 
 ## .:[ Change Log ]:.
 ```
+(1.0.1)
+-Added EnableSchedule
+-Added ScheduleOnEvery
+
 (1.0.0)
 -Initial Release
 ```

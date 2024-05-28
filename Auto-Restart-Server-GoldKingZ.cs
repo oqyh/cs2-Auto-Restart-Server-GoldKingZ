@@ -150,11 +150,6 @@ public class AutoRestartServerGoldKingZ : BasePlugin
             Globals._ScheduleTimer = null;
             Globals._ScheduleTimer = AddTimer(1.00f, RestartTimer_Callback2, TimerFlags.STOP_ON_MAPCHANGE);
             Globals.onetime2 = true;
-            Server.PrintToConsole(" ################################################");
-            Server.PrintToConsole(" ################################################");
-            Server.PrintToConsole(" ################################################");
-            Server.PrintToConsole(" ################################################");
-            Server.PrintToConsole(" ################################################");
         }
     }
     private void RestartTimer_Callback2()
@@ -164,14 +159,6 @@ public class AutoRestartServerGoldKingZ : BasePlugin
         string currentTime = now.ToString("HH:mm");
         if(playersCount <= Configs.GetConfigData().RestartWhenXPlayersInServerORLess || Configs.GetConfigData().EnableSchedule && currentTime == Configs.GetConfigData().ScheduleOnEvery)
         {
-            if(Configs.GetConfigData().EnableSchedule && currentTime == Configs.GetConfigData().ScheduleOnEvery)
-            {
-                Server.PrintToConsole(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-                Server.PrintToConsole(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-                Server.PrintToConsole(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-                Server.PrintToConsole(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-                Server.PrintToConsole(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-            }
             if(Configs.GetConfigData().TextLog_Enable && Configs.GetConfigData().RestartMode != 0)
             {
                 string modename = "";

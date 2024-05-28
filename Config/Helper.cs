@@ -103,7 +103,6 @@ public class Helper
     public static void ClearVariables()
     {
         Globals.onetime = false;
-        Globals.onetime2 = false;
         Globals._restartTimer?.Kill();
         Globals._restartTimer = null;
         Globals._restartTimer2?.Kill();

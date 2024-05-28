@@ -7,4 +7,5 @@ public class Globals
     public static CounterStrikeSharp.API.Modules.Timers.Timer? Defaultmap;
     public static CounterStrikeSharp.API.Modules.Timers.Timer? _restartTimer;
     public static CounterStrikeSharp.API.Modules.Timers.Timer? _restartTimer2;
+    public static CounterStrikeSharp.API.Modules.Timers.Timer? _ScheduleTimer;
 }

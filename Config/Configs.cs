@@ -105,6 +105,8 @@ namespace Auto_Restart_Server_GoldKingZ.Config
             public float RestartXTimerInMins { get; set; }
             public int RestartWhenXPlayersInServerORLess { get; set; }
             public string Mode1_RestartServerDefaultMap { get; set; }
+            public bool EnableSchedule { get; set; }
+            public string ScheduleOnEvery { get; set; }
             public string empty { get; set; }
             public bool TextLog_Enable { get; set; }
             public string TextLog_MessageFormat { get; set; }
@@ -159,6 +161,8 @@ namespace Auto_Restart_Server_GoldKingZ.Config
                 RestartXTimerInMins = 5.0f;
                 RestartWhenXPlayersInServerORLess = 0;
                 Mode1_RestartServerDefaultMap = "de_dust2";
+                EnableSchedule = false;
+                ScheduleOnEvery = "06:00";
                 empty = "-----------------------------------------------------------------------------------";
                 TextLog_Enable = false;
                 TextLog_MessageFormat = "[{DATE} - {TIME}] Server Has Less Players Sending [{MODE} Method]";

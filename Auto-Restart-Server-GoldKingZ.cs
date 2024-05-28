@@ -15,7 +15,7 @@ namespace Auto_Restart_Server_GoldKingZ;
 public class AutoRestartServerGoldKingZ : BasePlugin
 {
     public override string ModuleName => "Auto Restart Server (Auto Restart Server On Last Player Disconnect)";
-    public override string ModuleVersion => "1.0.0";
+    public override string ModuleVersion => "1.0.1";
     public override string ModuleAuthor => "Gold KingZ";
     public override string ModuleDescription => "https://github.com/oqyh";
 
@@ -27,9 +27,29 @@ public class AutoRestartServerGoldKingZ : BasePlugin
         RegisterListener<Listeners.OnClientDisconnectPost>(OnClientDisconnectPost);
         RegisterListener<Listeners.OnMapStart>(OnMapStart);
         RegisterListener<Listeners.OnMapEnd>(OnMapEnd);
+
+        DateTime now = DateTime.Now;
+        string currentTime = now.ToString("HH:mm");
+        if(Configs.GetConfigData().EnableSchedule && currentTime != Configs.GetConfigData().ScheduleOnEvery)
+        {
+            Globals.onetime2 = false;
+            Globals._ScheduleTimer?.Kill();
+            Globals._ScheduleTimer = null;
+            Globals._ScheduleTimer = AddTimer(0.1f, ScheduleTimer_Callback, TimerFlags.REPEAT | TimerFlags.STOP_ON_MAPCHANGE);
+        }
     }
     private void OnMapStart(string Map)
     {
+        DateTime now = DateTime.Now;
+        string currentTime = now.ToString("HH:mm");
+        if(Configs.GetConfigData().EnableSchedule && currentTime != Configs.GetConfigData().ScheduleOnEvery)
+        {
+            Globals.onetime2 = false;
+            Globals._ScheduleTimer?.Kill();
+            Globals._ScheduleTimer = null;
+            Globals._ScheduleTimer = AddTimer(0.1f, ScheduleTimer_Callback, TimerFlags.REPEAT | TimerFlags.STOP_ON_MAPCHANGE);
+        }
+
         if(Configs.GetConfigData().TextLog_AutoDeleteLogsMoreThanXdaysOld > 0)
         {
             string Fpath = Path.Combine(ModuleDirectory,"../../plugins/Auto-Restart-Server-GoldKingZ/logs");
@@ -60,7 +80,7 @@ public class AutoRestartServerGoldKingZ : BasePlugin
         {
             if(playersCount <= Configs.GetConfigData().RestartWhenXPlayersInServerORLess)
             {
-                Globals.onetime2 = false;
+                Globals.onetime = false;
                 Globals._restartTimer?.Kill();
                 Globals._restartTimer = null;
                 Globals._restartTimer2?.Kill();
@@ -68,7 +88,7 @@ public class AutoRestartServerGoldKingZ : BasePlugin
                 Globals._restartTimer = AddTimer(0.1f, RestartTimer_Callback, TimerFlags.REPEAT | TimerFlags.STOP_ON_MAPCHANGE);
             }else if(playersCount > Configs.GetConfigData().RestartWhenXPlayersInServerORLess)
             {
-                Globals.onetime2 = false;
+                Globals.onetime = false;
                 Globals._restartTimer?.Kill();
                 Globals._restartTimer = null;
                 Globals._restartTimer2?.Kill();
@@ -85,7 +105,7 @@ public class AutoRestartServerGoldKingZ : BasePlugin
         {
             if(playersCount <= Configs.GetConfigData().RestartWhenXPlayersInServerORLess)
             {
-                Globals.onetime2 = false;
+                Globals.onetime = false;
                 Globals._restartTimer?.Kill();
                 Globals._restartTimer = null;
                 Globals._restartTimer2?.Kill();
@@ -93,7 +113,7 @@ public class AutoRestartServerGoldKingZ : BasePlugin
                 Globals._restartTimer = AddTimer(0.1f, RestartTimer_Callback, TimerFlags.REPEAT | TimerFlags.STOP_ON_MAPCHANGE);
             }else if(playersCount > Configs.GetConfigData().RestartWhenXPlayersInServerORLess)
             {
-                Globals.onetime2 = false;
+                Globals.onetime = false;
                 Globals._restartTimer?.Kill();
                 Globals._restartTimer = null;
                 Globals._restartTimer2?.Kill();
@@ -120,11 +140,38 @@ public class AutoRestartServerGoldKingZ : BasePlugin
             Globals._restartTimer2 = null;
         }
     }
+    private void ScheduleTimer_Callback()
+    {
+        DateTime now = DateTime.Now;
+        string currentTime = now.ToString("HH:mm");
+        if (currentTime == Configs.GetConfigData().ScheduleOnEvery && Globals.onetime2 == false)
+        {
+            Globals._ScheduleTimer?.Kill();
+            Globals._ScheduleTimer = null;
+            Globals._ScheduleTimer = AddTimer(1.00f, RestartTimer_Callback2, TimerFlags.STOP_ON_MAPCHANGE);
+            Globals.onetime2 = true;
+            Server.PrintToConsole(" ################################################");
+            Server.PrintToConsole(" ################################################");
+            Server.PrintToConsole(" ################################################");
+            Server.PrintToConsole(" ################################################");
+            Server.PrintToConsole(" ################################################");
+        }
+    }
     private void RestartTimer_Callback2()
     {
         var playersCount = Helper.GetAllCount();
-        if(playersCount <= Configs.GetConfigData().RestartWhenXPlayersInServerORLess)
+        DateTime now = DateTime.Now;
+        string currentTime = now.ToString("HH:mm");
+        if(playersCount <= Configs.GetConfigData().RestartWhenXPlayersInServerORLess || Configs.GetConfigData().EnableSchedule && currentTime == Configs.GetConfigData().ScheduleOnEvery)
         {
+            if(Configs.GetConfigData().EnableSchedule && currentTime == Configs.GetConfigData().ScheduleOnEvery)
+            {
+                Server.PrintToConsole(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+                Server.PrintToConsole(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+                Server.PrintToConsole(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+                Server.PrintToConsole(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+                Server.PrintToConsole(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+            }
             if(Configs.GetConfigData().TextLog_Enable && Configs.GetConfigData().RestartMode != 0)
             {
                 string modename = "";
@@ -255,7 +302,7 @@ public class AutoRestartServerGoldKingZ : BasePlugin
 
         }else if(playersCount > Configs.GetConfigData().RestartWhenXPlayersInServerORLess)
         {
-            Globals.onetime2 = false;
+            Globals.onetime = false;
             Globals._restartTimer?.Kill();
             Globals._restartTimer = null;
             Globals._restartTimer2?.Kill();

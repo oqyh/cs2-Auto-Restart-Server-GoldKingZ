@@ -43,6 +43,18 @@
 
 </details>
 
+<details>
+<summary><b>🎮 In-Game Preview</b> (Click to expand 🔽)</summary>
+<br>
+<p align="center">
+  <a href="https://github.com/user-attachments/assets/016b836e-7ce5-429d-90e4-73ca9ce624d5">
+    <img src="https://github.com/user-attachments/assets/016b836e-7ce5-429d-90e4-73ca9ce624d5" alt="In-game preview" width="900">
+  </a>
+</p>
+</details>
+
+
+
 ---
 
 ## 📦 Dependencies

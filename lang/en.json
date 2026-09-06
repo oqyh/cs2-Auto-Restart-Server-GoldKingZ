@@ -1,0 +1,22 @@
+{
+    "PrintToChatToPlayer.ReloadPlugin.Not.Allowed": "{green}[Auto Restart Server] {darkred}You Dont Have Permission",
+    "PrintToChatToPlayer.ReloadPlugin.Successfully": "{green}[Auto Restart Server] {grey}Plugin Reloaded {lime}Successfully",
+
+    "PrintToChatToAll.Restart.Warning.1min":  "{green}[Auto Restart Server] {grey}Server Restart In {lightred}{0}{grey}.",
+    "PrintToChatToAll.Restart.Warning.30":  "{green}[Auto Restart Server] {grey}Restarting In {lightred}{0}{grey}.",
+    "PrintToChatToAll.Restart.Warning.15":  "{green}[Auto Restart Server] {grey}Restarting In {lightred}{0}{grey}.",
+    "PrintToChatToAll.Restart.Warning.5":  "{green}[Auto Restart Server] {grey}Restarting In {lightred}{0}{grey}.",
+    "PrintToChatToAll.Restart.Warning.4":  "{green}[Auto Restart Server] {grey}Restarting In {lightred}{0}{grey}.",
+    "PrintToChatToAll.Restart.Warning.3":  "{green}[Auto Restart Server] {grey}Restarting In {lightred}{0}{grey}.",
+    "PrintToChatToAll.Restart.Warning.2":  "{green}[Auto Restart Server] {grey}Restarting In {lightred}{0}{grey}.",
+    "PrintToChatToAll.Restart.Warning.1":  "{green}[Auto Restart Server] {grey}Restarting In {lightred}{0}{grey}.",
+    "PrintToChatToAll.Restart.Warning.0":  "{green}[Auto Restart Server] {grey}Restarting In {lightred}{0}{grey}.",
+    "PrintToChatToAll.Restart.Warning":     "{green}[Auto Restart Server] {grey}Restarting now using {lightred}{2}{grey}. See you soon!",
+    "PrintToChatToAll.Restart.Cancelled": "{green}[Auto Restart Server] {grey}Restart Cancelled — {lime}{3}{grey} Players On The Server, Limit Is {lime}{4}{grey}.",
+
+    "PrintCenterToPlayer.Restart.Warning.StartAt.30": "<font color='red'> SERVER RESTART {nextline} <font color='lime'> {0} {nextline} <font color='white'> Reason: {1}</font>",
+
+    "PrintCenterBottomToPlayer.Restart.Warning.15": "Automatic Server Restart {nextline} Please Rejoin",
+    "PrintCenterBottomToPlayer.Restart.Warning.0":  "Restarting now"
+
+}
